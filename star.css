@@ -1,0 +1,291 @@
+#星光背景 {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+    background:linear-gradient(35deg, #191a2e 20%, #3d2e5c 70%, #6a4c94 100%);
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+/*url(img/awa.png) center/cover no-repeat;*/
+/* */
+
+.星星 {
+    position: absolute;
+    background: white;
+    border-radius: 50%;
+    animation: 闪烁 5s infinite;
+}
+
+.星星.小 {
+    width: 1px;
+    height: 1px;
+    box-shadow: 0 0 5px 1px rgba(255, 255, 255, 0.4);
+}
+
+.星星.中 {
+    width: 2px;
+    height: 2px;
+    box-shadow: 0 0 8px 1px rgba(255, 255, 255, 0.6);
+}
+
+.星星.大 {
+    width: 3px;
+    height: 3px;
+    box-shadow: 0 0 10px 1px rgba(255, 255, 255, 0.8);
+}
+
+.星星.彩 {
+    box-shadow: 0 0 5px 1px #ff6b6b, 0 0 10px 2px #a0deff;
+    animation: 彩色闪烁 4s infinite alternate;
+}
+
+@keyframes 闪烁 {
+
+    0%,
+    100% {
+        opacity: 0.2;
+    }
+
+    50% {
+        opacity: 1.0;
+    }
+}
+
+@keyframes 彩色闪烁 {
+
+    0% {
+        opacity: 0.3;
+        box-shadow: 0 0 5px 1px #ff6b6b, 0 0 10px 2px #a0deff;
+    }
+
+    50% {
+        opacity: 0.8;
+        box-shadow: 0 0 10px 2px #ff9a8b, 0 0 15px 3px #6ec1ff;
+    }
+
+    100% {
+        opacity: 0.5;
+        box-shadow: 0 0 8px 1.5px #ffd166, 0 0 12px 2.5px #a0deff;
+    }
+
+}
+
+.流星 {
+    position: absolute;
+    width: 80px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, white, #a0deff);
+    filter: blur(1px);
+    animation: 划过 3s linear forwards;
+    z-index: 10;
+}
+
+@keyframes 划过 {
+    0% {
+        transform: translateX(0), translateY(0);
+        opacity: 0;
+    }
+
+    10% {
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateX(300px), translateY(150px);
+        opacity: 0;
+    }
+}
+
+.星尘 {
+    position: fixed;
+    border-radius: 50%;
+    pointer-events: none;
+    animation: 飘散 2s ease-out forwards;
+    opacity: 0.7;
+    box-shadow: 0 0 6px 1px rgba(255, 255, 255, 0.4);
+    z-index: 2147483647;
+}
+
+@keyframes 飘散 {
+    0% {
+        transform: translate(0, 0);
+        opacity: 1;
+    }
+
+    100% {
+        transform:
+            translate(calc((var(--x)*30px)),
+                calc((var(--y)*30px)));
+        opacity: 0;
+    }
+}
+
+.svg星座 {
+    position: absolute;
+    width: 100px;
+    height: 80px;
+    background: url(svg/awa.svg) no-repeat;
+    opacity: 0.05;
+    animation: 星座发光 8s infinite alternate;
+    z-index: 0.5;
+}
+
+@keyframes 星座发光 {
+    to {
+        opacity: 0.15;
+    }
+}
+
+
+#星空菜单按钮 {
+    position: fixed;
+    top: 34px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(160, 222, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    z-index: 114514;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+}
+
+#星空菜单按钮:hover {
+    background: rgba(160, 222, 255, 0.5);
+    transform: rotate(45deg);
+}
+
+#星空菜单按钮::before {
+    content: "✨️";
+    font-size: 24px;
+}
+
+#星空控制台 {
+    position: fixed;
+    top: 20px;
+    right: -325px;
+    width: 280px;
+    background: rgba(26, 26, 46, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    z-index: 1000;
+    transition: right 0.5s ease;
+}
+
+
+#星空控制台.显示 {
+    right: 76px;
+}
+
+.控制台标题 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.控制台标题 h2 {
+    margin: 0;
+    font-size: 1.4em;
+    color: #6ec1ff;
+}
+
+.关闭按钮 {
+    background: none;
+    border: none;
+    color: #ff9a8b;
+    font-size: 24px;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.关闭按钮:hover {
+    transform: rotate(90deg);
+}
+
+.控制项 {
+    margin-bottom: 25px;
+    color: #a0deff;
+    pointer-events: auto;
+}
+
+.控制项 label {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.控制项 label::before {
+    content: 🐾;
+    margin-right: 8px;
+}
+
+.滑块容器 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    pointer-events: auto;
+}
+
+input[type="range"] {
+    flex: 1;
+    height: 6px;
+    border-radius: 3px;
+    background: rgba(255, 255, 255, 0.1);
+    outline: none;
+    -webkit-appearance: none;
+}
+
+input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 10px;
+    padding: 10px;
+    border-radius: 50%;
+    background: #a0deff;
+    cursor: pointer;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+}
+
+.数值显示 {
+    width: 50px;
+    text-align: center;
+    background: rgba(255, 255, 255, 0.1);
+    padding: 5px;
+    border-radius: 5px;
+}
+
+#预设按钮组 {
+    display: flex;
+    gap: 10px;
+    margin-top: 20px;
+    pointer-events: auto;
+}
+
+.预设按钮 {
+    flex: 1;
+    padding: 8px;
+    border: none;
+    border-radius: 8px;
+    background: rgba(160, 222, 255, 0.3);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.预设按钮:hover {
+    background: rgba(160, 222, 255, 0.5);
+    transform: translateY(-2px);
+}

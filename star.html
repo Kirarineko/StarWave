@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="zh_CN">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>星澜起始页</title>
+    <link rel="stylesheet" href="content.css">
+    <link rel="stylesheet" href="star.css">
+
+</head>
+
+<body>
+    <div id="星光背景"></div>
+
+    <div id="星空菜单按钮" title="星空设置"></div>
+    <div id="星空控制台">
+
+        <div class="控制台标题">
+            <h2>✨️星空控制台<span style="font-size: 10px; color:#6ec0ff90;">(性能消耗较高)</span></h2>
+            <button class="关闭按钮"></button>
+        </div>
+
+        <div class="控制项">
+            <label for="星星密度">星星数量</label>
+            <div class="滑块容器">
+                <input type="range" id="星星密度" min="0" max="800" value="150">
+                <span class="数值显示" id="星星数量显示">300</span>
+            </div>
+        </div>
+
+        <div class="控制项">
+            <label for="流星频率">流星生成间隔</label>
+            <div class="滑块容器">
+                <input type="range" id="流星频率" min="1" max="10" value="3" step="0.5">
+                <span class="数值显示" id="流星频率显示">3</span>
+            </div>
+        </div>
+
+        <div class="控制项">
+            <label for="星星大小">星星大小</label>
+            <div class="滑块容器">
+                <input type="range" id="星星大小" min="1" max="5" value="1" step="0.5">
+                <span class="数值显示" id="星星大小显示">1</span>
+            </div>
+        </div>
+
+        <div id="预设按钮组">
+            <button class="预设按钮" data-stars="100" data-meteor="5">宁静</button>
+            <button class="预设按钮" data-stars="300" data-meteor="2">璀璨</button>
+            <button class="预设按钮" data-stars="500" data-meteor="1">银河</button>
+        </div>
+    </div>
+
+
+    <div id="内容">
+        <section id="搜索栏">
+            <div id="搜索框">
+                <input type="text" id="搜索输入" placeholder="搜索~">
+                <button id="搜索按钮" onclick="搜索()">🔍</button>
+            </div>
+            <div id="搜索推荐列表" class="搜索推荐列表"></div>
+
+            <div id="快捷键组">
+                <button id="自定义快捷键0" class="自定义快捷键"></button>
+
+                <div id="第二列快捷键">
+                    <button id="自定义快捷键1" class="自定义快捷键"></button>
+                    <button id="自定义快捷键2" class="自定义快捷键"></button>
+                </div>
+
+                <div id="第三列快捷键">
+                    <button id="自定义快捷键3" class="自定义快捷键"></button>
+                    <div id="第三列小快捷键">
+                        <button id="自定义快捷键4" class="自定义快捷键"></button>
+                        <button id="自定义快捷键5" class="自定义快捷键"></button>
+                    </div>
+                </div>
+            </div>
+
+            <div id="快捷键组2">
+                <div class="快捷键行">
+                    <button id="自定义快捷键6" class="自定义快捷键"></button>
+                    <button id="自定义快捷键7" class="自定义快捷键"></button>
+                    <button id="自定义快捷键8" class="自定义快捷键"></button>
+                    <button id="自定义快捷键9" class="自定义快捷键"></button>
+                </div>
+                <div class="快捷键行">
+                    <button id="自定义快捷键10" class="自定义快捷键"></button>
+                    <button id="自定义快捷键11" class="自定义快捷键"></button>
+                    <button id="自定义快捷键12" class="自定义快捷键"></button>
+                    <button id="自定义快捷键13" class="自定义快捷键"></button>
+                </div>
+            </div>
+
+        </section>
+
+        <section id="信息栏">
+            <div id="时间">
+                <h1 id="当前时间">08:30</h1>
+                <p id="完整日期">2025年7月29日</p>
+                <hr>
+                <p id="问候语">早上好~今天也要元气满满哦~</p>
+            </div>
+
+            <div id="倒计时">
+                <h2>距离</h2>
+                <h1 id="倒计时事件显示">未设置倒计时</h1>
+                <div id="剩余时间">
+                    
+                    <div class="倒计时项">
+                        <p>还有<span id="倒计时天">0</span>天</p>
+                    </div>
+                    <div class="倒计时项">
+                        <p><span id="倒计时时">0</span>时</p>
+                    </div>
+                    <div class="倒计时项">
+                        <p><span id="倒计时分">0</span>分</p>
+                    </div>
+                </div>
+                <hr>
+            </div>
+
+            <div id="日历">
+                <div class="日历标题"></div>
+                <div class="星期标题">
+                    <div class="星期项">日</div>
+                    <div class="星期项">一</div>
+                    <div class="星期项">二</div>
+                    <div class="星期项">三</div>
+                    <div class="星期项">四</div>
+                    <div class="星期项">五</div>
+                    <div class="星期项">六</div>
+                </div>
+                <div class="日期网格"></div>
+            </div>
+        </section>
+
+        <section id="日程栏">
+
+            <div id="待办事项">
+                <div id="任务列表">
+                    <!-- 任务项会动态添加在这里喵 -->
+                </div>
+
+                <button id="添加任务" class="自定义快捷键">添加待办事项</button>
+            </div>
+
+            <div id="自定义文本框">
+
+            </div>
+
+        </section>
+
+        <div id="菜单按钮组">
+            <button id="背景图片按钮" class="菜单按钮 b1" title="背景图片">🖼️</button>
+            <button id="自定义问候语按钮" class="菜单按钮 b2" title="自定义问候语">💬</button>
+            <button id="切换搜索引擎按钮" class="菜单按钮" title="切换搜索引擎">🔍️</button>
+            <button id="倒计时设置按钮" class="菜单按钮" title="设置倒计时">⌛️</button>
+            <button id="删除已完成任务" class="菜单按钮" title="删除已完成任务">🗑️</button>
+        </div>
+
+        <section id="菜单面板组" class="菜单面板">
+            <div id="背景图片面板">
+                <h2>🖼️拖入图片</h2>
+                <input type="file" id="背景图片输入" class="隐藏输入">
+                <label for="背景图片输入"></label>
+                <button id="重置背景" class="自定义快捷键">重置背景</button>
+            </div>
+
+            <div id="自定义问候语面板" class="菜单面板">
+                <h2>💬自定义问候语</h2>
+                <input type="text" id="早晨问候语" placeholder="晨光熹微,新的一天开始啦~" class="自定义问候语输入">
+                <input type="text" id="上午问候语" placeholder="上午好！保持专注哦~" class="自定义问候语输入">
+                <input type="text" id="中午问候语" placeholder="午安,记得补充能量!" class="自定义问候语输入">
+                <input type="text" id="下午问候语" placeholder="下午好,继续加油哦~" class="自定义问候语输入">
+                <input type="text" id="晚上问候语" placeholder="晚上好,放松一下吧~" class="自定义问候语输入">
+                <input type="text" id="深夜问候语" placeholder="夜深了,早点休息吧~" class="自定义问候语输入">
+            </div>
+
+            <div id="切换搜索引擎面板" class="菜单面板">
+                <h2>🔍️切换搜索引擎</h2>
+                <button id="切换bing" class="自定义快捷键">Bing</button>
+                <button id="切换谷歌" class="自定义快捷键">Google</button>
+                <button id="切换百度" class="自定义快捷键">百度</button>
+                <button id="切换知乎" class="自定义快捷键">知乎</button>
+            </div>
+
+            <div id="倒计时设置面板" class="菜单面板">
+                <h2>⌛️设置倒计时</h2>                             <!--偷懒套问候语的输入框XwX-->
+                <input type="date" id="倒计时日期" class="自定义问候语输入">
+                <input type="time" id="倒计时时间" class="自定义问候语输入">
+                <input type="text" id="倒计时事件" class="自定义问候语输入" placeholder="倒计时事件">
+                <button id="设置倒计时" class="自定义快捷键">设置</button> <!--偷懒套快捷键按钮XwX-->
+                </input>
+            </div>
+        </section>
+    </div>
+
+    <script src="star.js"></script>
+    <script src="content.js"></script>
+    <script src="weather.js"></script>
+</body>
+
+</html>

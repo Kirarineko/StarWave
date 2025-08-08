@@ -1,0 +1,764 @@
+#搜索栏 {
+    position: fixed;
+    background: rgba(26, 26, 46, 0.3);
+    height: auto;
+    max-width: 45vw;
+    backdrop-filter: blur(8px);
+    border-radius: 25px;
+    top: 20px;
+    left: 20px;
+    right: 20px;
+    bottom: 20px;
+    margin: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.17);
+    display: flex;
+    transition: all 0.3s;
+    overflow: hidden;
+}
+
+#搜索栏:hover {
+    transform: translateY(-2px);
+    backdrop-filter: blur(12px);
+}
+
+#日程栏 {
+    position: fixed;
+    background: rgba(26, 26, 46, 0.3);
+    height: 55vh;
+    width: 45vw;
+    backdrop-filter: blur(8px);
+    border-radius: 25px;
+    bottom: 20px;
+    right: 60px;
+    margin: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.17);
+    transition: all 0.3s;
+    overflow: hidden;
+}
+
+#日程栏:hover {
+    transform: translateY(-2px);
+    backdrop-filter: blur(12px);
+}
+
+#信息栏 {
+    position: fixed;
+    background: rgba(26, 26, 46, 0.3);
+    height: 30vh;
+    width: 45vw;
+    backdrop-filter: blur(8px);
+    border-radius: 25px;
+    top: 20px;
+    right: 60px;
+    margin: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.17);
+    transition: all 0.3s;
+    overflow: hidden;
+}
+
+#信息栏:hover {
+    transform: translateY(-2px);
+    backdrop-filter: blur(12px);
+}
+
+#搜索框 {
+    display: flex;
+    pointer-events: auto;
+    position: absolute;
+    height: 40px;
+    width: 40vw;
+    border-radius: 25px;
+    top: 20px;
+    left: 1vw;
+    right: 20px;
+    margin: 20px;
+}
+
+#搜索输入 {
+    pointer-events: auto;
+    background: rgba(26, 26, 46, 0.3);
+    backdrop-filter: blur(6px);
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    flex: 1;
+    max-width: 34vw;
+    color: #82b4cf;
+    padding: 20px;
+    font-size: 20px;
+    z-index: 1001;
+}
+
+.搜索推荐列表 {
+    position: absolute;
+    top: 62px;
+    padding-top: 10px;
+    left: 35px;
+    width: 36.5vw;
+    max-height: 300px;
+    background: rgba(26, 26, 46, 0.8);
+    backdrop-filter: blur(8px);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.17);
+    overflow-y: auto;
+    z-index: 1000;
+    display: none;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+.搜索推荐列表.显示 {
+    display: block;
+}
+
+.搜索推荐项 {
+    padding: 12px 20px;
+    color: #82b4cf;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.搜索推荐项:last-child {
+    border-bottom: none;
+}
+
+.搜索推荐项:hover {
+    background: rgba(160, 222, 255, 0.2);
+}
+
+
+#搜索按钮 {
+    position: fixed;
+    width: 40px;
+    height: 40px;
+    left: 39vw;
+    border-radius: 50%;
+    background: rgba(160, 222, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    z-index: 114514;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    font-size: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+#搜索按钮:hover {
+    background: rgba(160, 222, 255, 0.5);
+    transform: rotate(45deg);
+}
+
+#快捷键组 {
+    height: 33.4vh;
+    width: 40.2vw;
+    margin: 20px;
+    pointer-events: none;
+    display: flex;
+    margin-top: 120px;
+    margin-left: 2.4vw;
+    gap: 10px;
+    justify-content: space-between;
+}
+
+#快捷键组2 {
+    position: fixed;
+    height: 33.4vh;
+    width: 40.2vw;
+    margin: 20px;
+    pointer-events: none;
+    margin-top: calc(120px + 32vh + 30px);
+    margin-left: 2.4vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.快捷键行 {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    height: calc(50% - 10px);
+}
+
+.快捷键行 .自定义快捷键 {
+    padding: 8px;
+    border: none;
+    border-radius: 15px;
+    background: rgba(160, 222, 255, 0.1);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    pointer-events: auto;
+    width: 23.5%;
+}
+
+.自定义快捷键 {
+    padding: 8px;
+    border: none;
+    border-radius: 15px;
+    background: rgba(160, 222, 255, 0.1);
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    pointer-events: auto;
+}
+
+#自定义快捷键0 {
+    height: 100%;
+    width: 23.5%;
+}
+
+#第二列快捷键 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 23.5%;
+}
+
+#第二列快捷键 .自定义快捷键 {
+    height: 100px;
+    flex: 1;
+}
+
+#自定义快捷键1 {
+    margin-bottom: 10px;
+}
+
+#自定义快捷键2 {
+    margin-top: 10px;
+}
+
+#第三列快捷键 {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 49%;
+}
+
+#第三列快捷键 .自定义快捷键 {
+    height: 15.4vh;
+    flex: 1;
+}
+
+#自定义快捷键3 {
+    margin-bottom: 10px;
+}
+
+#第三列小快捷键 {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    height: auto;
+    border: none;
+    border-radius: 15px;
+    color: white;
+    cursor: pointer;
+    transition: all 0.3s;
+    pointer-events: none;
+}
+
+.自定义快捷键:hover {
+    background: rgba(160, 222, 255, 0.3);
+    transform: translateY(-5px);
+}
+
+
+
+#菜单按钮组 {
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: flex-start;
+    width: 40px;
+    height: 85vh;
+    right: 20px;
+    position: fixed;
+    top: 90px;
+
+}
+
+.菜单按钮 {
+    position: relative;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background: rgba(160, 222, 255, 0.1);
+    backdrop-filter: blur(5px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.3s ease;
+    font-size: 20px;
+    pointer-events: auto;
+}
+
+.菜单按钮:hover {
+    background: rgba(160, 222, 255, 0.5);
+    transform: rotate(45deg);
+}
+
+#菜单按钮组 {
+    z-index: 0;
+}
+
+.菜单按钮.b2 {
+    z-index: 98;
+}
+
+#日历 {
+    position: absolute;
+    width: 180px;
+    height: auto;
+    right: 20px;
+    top: 20px;
+    background: rgba(160, 222, 255, 0.05);
+    ;
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+    pointer-events: auto;
+}
+
+.日历标题 {
+    text-align: center;
+    font-size: 18px;
+    color: #a0deff;
+    margin-bottom: 10px;
+    font-weight: bold;
+    display: none;
+}
+
+.星期标题 {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.星期项 {
+    flex: 1;
+    text-align: center;
+    color: #89d6ffc8;
+    font-size: 14px;
+}
+
+.日期网格 {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+.日期项 {
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #89d6ffc8;
+    font-size: 14px;
+    border-radius: 4px;
+}
+
+.日期项.今天 {
+    background: rgba(160, 222, 255, 0.3);
+    color: white;
+    font-weight: bold;
+}
+
+.日期项.空白日期 {
+    background: transparent;
+}
+
+.日期项:hover:not(.空白日期) {
+    background: rgba(160, 222, 255, 0.2);
+    cursor: pointer;
+}
+
+#待办事项 {
+    position: relative;
+    background: #82b4cf14;
+    height: 88%;
+    width: 45%;
+    top: 6%;
+    border-radius: 15px;
+    left: 4%;
+}
+
+#添加任务 {
+    position: absolute;
+    width: 100%;
+    bottom: 0;
+    border-radius: 15px;
+    height: 32px;
+}
+
+#任务列表 {
+    position: relative;
+    top: 10px;
+    bottom: 32px;
+    width: 100%;
+    max-height: calc(100% - 10px - 32px);
+    overflow-y: auto;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+#任务列表::-webkit-scrollbar {
+    display: none;
+}
+
+.任务项 {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 0px 10px;
+    margin-bottom: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+    transition: all 0.3s;
+    color: #a0deff
+}
+
+.勾选框 {
+    position: relative;
+    width: 24px;
+    height: 24px;
+    margin-right: 10px;
+    cursor: pointer;
+    flex-shrink: 0;
+}
+
+.勾选框 input[type="checkbox"] {
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    cursor: pointer;
+}
+
+.勾选框 .自定义勾 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border: 2px solid rgba(255, 255, 255, 0.25);
+    ;
+    border-radius: 50%;
+    background: rgba(160, 222, 255, 0.1);
+    transition: all 0.2s;
+}
+
+.勾选框 input:checked~.自定义勾 {
+    background: rgba(145, 165, 255, 0.25);
+}
+
+.勾选框 input:checked~.自定义勾::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    font-weight: bold;
+}
+
+.可编辑文本 {
+    flex-grow: 1;
+    padding-bottom: 1px;
+    border-bottom: 3px solid #a2dfff78;
+    border-radius: 1px;
+    outline: none;
+    transition: all 0.3s;
+    min-height: 1em;
+    cursor: text;
+}
+
+.可编辑文本:focus {
+    border-bottom: 3px solid white;
+}
+
+.任务项.完成 .可编辑文本 {
+    text-decoration: line-through;
+    color: #aaaaaaaa;
+}
+
+#时间 {
+    position: fixed;
+    left: 25px;
+    top: -5px;
+}
+
+#当前时间 {
+    font-size: 64px;
+    color: #a0deff;
+    margin: 0;
+    margin-top: 10px;
+}
+
+#完整日期 {
+    font-size: 20px;
+    color: #a0deffb7;
+    margin: 0;
+    margin-top: -10px;
+}
+
+#时间 hr {
+    border: 0.5px solid #a2dfff78;
+    border-radius: 2px;
+}
+
+#倒计时 {
+    left: 33%;
+    top: 20px;
+    width: 30%;
+    position: fixed;
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+#倒计时 h2 {
+    color: #a0deff;
+    margin: 0px;
+    margin-top: 0;
+}
+
+#倒计时 h1 {
+    color: #a0deff;
+    margin: -10px;
+    font-size: 34px;
+}
+
+#剩余时间 {
+    display: flex;
+    color: #a0deff;
+    margin:-8px;
+    margin-bottom: -16.5px;
+}
+
+#倒计时 hr {
+    border: 0.5px solid #a2dfff78;
+    border-radius: 2px;
+    margin: -10;
+    margin-top: 10px;
+    width: 100%;
+}
+
+#问候语 {
+    font-size: 14px;
+    color: #89d6ffc8;
+    margin: 0;
+    margin-top: 10px;
+}
+
+#自定义问候语面板 {
+    position: fixed;
+    top: 130px;
+    right: -325px;
+    width: 280px;
+    background: rgba(26, 26, 46, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: right 0.5s ease;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    z-index: 98;
+}
+
+#自定义问候语面板.显示 {
+    right: 76px;
+}
+
+#自定义问候语面板 h2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 0;
+    font-size: 1.4em;
+    color: #6ec1ff;
+}
+
+
+.自定义问候语输入 {
+    position: relative;
+    pointer-events: auto;
+    background: rgba(26, 26, 46, 0.3);
+    backdrop-filter: blur(6px);
+    border-radius: 25px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    flex: 1;
+    color: #82b4cf;
+    padding: 10px;
+    width: 250px;
+    font-size: 10px;
+    top: 10px;
+    margin: 3px;
+}
+
+#背景图片面板 {
+    position: fixed;
+    top: 75px;
+    right: -325px;
+    width: 280px;
+    background: rgba(26, 26, 46, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: right 0.5s ease;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    z-index: 0
+}
+
+#背景图片面板 h2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 0;
+    font-size: 1.4em;
+    color: #6ec1ff;
+}
+
+#背景图片面板 input {
+    display: none;
+}
+
+#背景图片面板 label {
+    position: relative;
+    margin-top: 10px;
+    display: flex;
+    background: #a0deff3e;
+    border-radius: 10px;
+    height: 100px;
+    pointer-events: auto;
+    border: 1px solid rgba(255, 255, 255, 0.136);
+    transition: all 0.3s;
+}
+
+#背景图片面板 label:hover {
+    transform: translateY(-3px);
+}
+
+#背景图片面板.显示 {
+    right: 76px;
+}
+
+#重置背景 {
+    margin-top: 10px;
+}
+
+
+
+#切换搜索引擎面板 {
+    position: fixed;
+    top: 185px;
+    right: -325px;
+    width: 280px;
+    background: rgba(26, 26, 46, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: right 0.5s ease;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    z-index: 98;
+}
+
+#切换搜索引擎面板.显示 {
+    right: 76px;
+}
+
+
+#切换搜索引擎面板 h2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 0;
+    font-size: 1.4em;
+    color: #6ec1ff;
+}
+
+#切换搜索引擎面板 button {
+    margin-top: 10px;
+}
+
+#切换搜索引擎面板 button:hover {
+    transform: translateY(-3px);
+}
+
+@media screen and (max-width: 1300px) {
+    #搜索栏 {
+        max-width: 45vw;
+    }
+
+    #信息栏 {
+        max-width: 43vw;
+    }
+
+    #日程栏 {
+        max-width: 43vw;
+    }
+}
+
+#倒计时设置面板 {
+    position: fixed;
+    top: 240px;
+    right: -325px;
+    width: 280px;
+    background: rgba(26, 26, 46, 0.3);
+    backdrop-filter: blur(10px);
+    border-radius: 25px;
+    padding: 20px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    transition: right 0.5s ease;
+    pointer-events: none;
+    display: flex;
+    flex-direction: column;
+    z-index:0
+}
+
+#倒计时设置面板.显示 {
+    right: 76px;
+}
+
+#倒计时设置面板 h2 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 0;
+    font-size: 1.4em;
+    color: #6ec1ff;
+}
+
+#设置倒计时{
+    margin-top: 17px;
+}
