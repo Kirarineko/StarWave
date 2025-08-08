@@ -164,7 +164,7 @@
 }
 
 #快捷键组2 {
-    position: fixed;
+    position: absolute;
     height: 33.4vh;
     width: 40.2vw;
     margin: 20px;
@@ -174,7 +174,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    gap: 20px;
+
 }
 
 .快捷键行 {
@@ -542,7 +542,7 @@
 #剩余时间 {
     display: flex;
     color: #a0deff;
-    margin:-8px;
+    margin: -8px;
     margin-bottom: -16.5px;
 }
 
@@ -740,7 +740,7 @@
     pointer-events: none;
     display: flex;
     flex-direction: column;
-    z-index:0
+    z-index: 0
 }
 
 #倒计时设置面板.显示 {
@@ -759,6 +759,142 @@
     color: #6ec1ff;
 }
 
-#设置倒计时{
+#设置倒计时 {
     margin-top: 17px;
+}
+
+@media (max-width: 1430px) {
+    #倒计时 {
+        left: 0;
+        top: 165px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+    }
+
+    #倒计时 h2 {
+        display: none;
+    }
+
+    #倒计时 h1 {
+        position: fixed;
+        left: 35px;
+        color: #a0deffcc;
+        margin: -10px;
+        font-size: 14px;
+        top: 165px;
+    }
+
+    #剩余时间 {
+        position: fixed;
+        color: #a0deffae;
+        margin: -8px;
+        margin-bottom: -16.5px;
+        font-size: 14px;
+        left: 65px;
+        top: 165px;
+    }
+
+    #倒计时 hr {
+        display: none;
+    }
+}
+
+@media (max-width: 1000px) {
+    #日程栏{
+        display: none;
+    }
+
+    #信息栏{
+        display: none;
+    }
+
+    #搜索栏{
+        max-width: calc(100vw - 115px);
+        left: 10px;
+        right: 10px;
+        margin: 10px;
+        border-radius: 18px;
+        padding: 8px;
+    }
+
+    #搜索框 {
+        width: 95%;
+        left: 20px;
+        right: 0;
+        margin: 10px 0;
+        height: 36px;
+        border-radius: 18px;
+        font-size: 16px;
+    }
+
+    #搜索输入 {
+        max-width: 84%;
+        font-size: 16px;
+        padding: 10px;
+        border-radius: 18px;
+    }
+
+    #搜索按钮 {
+        position: static;
+        width: 36px;
+        height: 36px;
+        margin-left: 8px;
+        margin-right: 0;
+        font-size: 18px;
+        border-radius: 50%;
+        z-index: 10;
+    }
+
+    #快捷键组{
+        width: 90%;
+        position: absolute;
+    }
+    
+    #快捷键组2{
+        width: 90%;
+        position: absolute;
+    }
+
+    .快捷键行 {
+        gap: 6px;
+    }
+
+    .自定义快捷键 {
+        width: 100%;
+        min-width: 0;
+        font-size: 15px;
+        padding: 8px 0;
+        margin: 0;
+        border-radius: 12px;
+    }
+}
+
+@media (max-height: 600px) {
+    #日程栏{
+        height: 40vh;
+    }
+
+    #信息栏{
+        height: 40vh;
+    }
+}
+
+@media (max-height: 400px) {
+    #日程栏{
+        display: none;
+    }
+
+    #信息栏{
+        height: auto;
+        top: 10px;
+        bottom: 10px;
+    }
+
+    #搜索栏{
+        height: auto;
+        top: 10px;
+        bottom: 10px;
+    }
 }
