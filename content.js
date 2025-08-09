@@ -628,9 +628,8 @@ function 渲染备忘录列表() {
         删除按钮.title = '删除此备忘录';
         删除按钮.style.marginRight = '8px';
         删除按钮.style.marginLeft = '4px';
-        删除按钮.style.position = 'absolute';
         删除按钮.style.top = '8px'
-        删除按钮.style.right = '0px'
+        删除按钮.style.right = 'px'
         删除按钮.style.cursor = 'pointer';
         删除按钮.style.border = 'none';
         删除按钮.style.background = 'transparent';
