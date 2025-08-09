@@ -570,6 +570,103 @@ function 保存任务数据(任务数组) {
 
 let 当前任务数据 = 读取任务数据();
 
+
+const 添加备忘录按钮 = document.getElementById('添加备忘录');
+const 备忘录存储键 = '备忘录数据';
+function 获取备忘录数据() {
+    try {
+        const 数据 = JSON.parse(localStorage.getItem(备忘录存储键));
+        if (Array.isArray(数据)) return 数据;
+    } catch { }
+    return [];
+}
+
+function 保存备忘录数据到本地(数组) {
+    localStorage.setItem(备忘录存储键, JSON.stringify(数组));
+}
+
+let 备忘录数据列表 = 获取备忘录数据();
+
+function 渲染备忘录列表() {
+    const 备忘录容器 = document.getElementById('备忘录列表');
+    if (!备忘录容器) return;
+    备忘录容器.innerHTML = '';
+    备忘录数据列表.forEach((内容, 索引) => {
+        const 行容器 = document.createElement('div');
+        行容器.style.display = 'flex';
+        行容器.style.alignItems = 'center';
+        行容器.style.marginBottom = '6px';
+
+        const 输入框 = document.createElement('input');
+        输入框.type = 'text';
+        输入框.className = '自定义快捷键';
+        输入框.id = `备忘录项目`;
+        输入框.value = 内容;
+        输入框.placeholder = '备忘内容';
+        输入框.setAttribute('data-memo-index', 索引);
+        输入框.style.flex = '1';
+
+        function 刷新输入框长度() {
+            输入框.size = Math.max(4, Math.min(输入框.value.length + 1, 40));
+            输入框.style.maxWidth = '90%';
+            输入框.style.minWidth = '60px';
+        }
+        刷新输入框长度();
+        输入框.addEventListener('input', () => {
+            备忘录数据列表[索引] = 输入框.value;
+            保存备忘录数据到本地(备忘录数据列表);
+            刷新输入框长度();
+        });
+        输入框.addEventListener('blur', () => {
+            备忘录数据列表[索引] = 输入框.value;
+            保存备忘录数据到本地(备忘录数据列表);
+            刷新输入框长度();
+        });
+
+        const 删除按钮 = document.createElement('button');
+        删除按钮.textContent = 'x';
+        删除按钮.title = '删除此备忘录';
+        删除按钮.style.marginRight = '8px';
+        删除按钮.style.marginLeft = '4px';
+        删除按钮.style.position = 'absolute';
+        删除按钮.style.top = '8px'
+        删除按钮.style.right = '0px'
+        删除按钮.style.cursor = 'pointer';
+        删除按钮.style.border = 'none';
+        删除按钮.style.background = 'transparent';
+        删除按钮.style.color = '#a0deff';
+        删除按钮.style.fontSize = '18px';
+        删除按钮.onclick = function () {
+            备忘录数据列表.splice(索引, 1);
+            保存备忘录数据到本地(备忘录数据列表);
+            渲染备忘录列表();
+        };
+
+        行容器.appendChild(输入框);
+        行容器.appendChild(删除按钮);
+        备忘录容器.appendChild(行容器);
+    });
+
+}
+
+渲染备忘录列表();
+
+添加备忘录按钮.addEventListener('click', () => {
+    备忘录数据列表.push('');
+    保存备忘录数据到本地(备忘录数据列表);
+    渲染备忘录列表();
+    setTimeout(() => {
+        const 备忘录容器 = document.getElementById('备忘录列表');
+        if (备忘录容器) {
+            const 输入框们 = 备忘录容器.querySelectorAll('input');
+            if (输入框们.length) {
+                const 最后一个 = 输入框们[输入框们.length - 2];
+                最后一个.focus();
+            }
+        }
+    });
+});
+
 function 渲染任务列表() {
     任务列表.innerHTML = '';
     当前任务数据.forEach((任务, idx) => {
@@ -661,3 +758,4 @@ const 删除已完成任务 = document.getElementById('删除已完成任务');
     保存任务数据(当前任务数据);
     渲染任务列表();
 });
+

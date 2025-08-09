@@ -17,7 +17,7 @@
 }
 
 #搜索栏:hover {
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.002);
     backdrop-filter: blur(12px);
 }
 
@@ -37,7 +37,7 @@
 }
 
 #日程栏:hover {
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.002);
     backdrop-filter: blur(12px);
 }
 
@@ -57,8 +57,48 @@
 }
 
 #信息栏:hover {
-    transform: translateY(-2px);
+    transform: translateY(-2px) scale(1.002);
     backdrop-filter: blur(12px);
+}
+
+#备忘录{
+    position: fixed;
+    border: 2px dashed rgba(160, 255, 255, 0.1);
+    right:2%;
+    left:52%;
+    bottom: 22.5px;
+    top: 25px;
+    border-radius: 15px;
+}
+
+#备忘录列表{
+    height: 88%;
+    overflow-y: scroll;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+}
+
+#备忘录:hover{
+    border: 2px solid rgba(160, 255, 255, 0.1);
+}
+
+#添加备忘录{
+    position: absolute;
+    height: 33px;
+    width: 96%;
+    bottom: 0px;
+    border-radius:10px;
+    bottom: 2%;
+    left: 2%;
+}
+
+#备忘录项目{
+    margin-left: 2%;
+    margin-top: 2%;
+    margin-bottom: -2%;
+    margin-right: -8.5%;
+    color: #a0deff;
+    border-radius: 10px;
 }
 
 #搜索框 {
@@ -208,6 +248,7 @@
     transition: all 0.3s;
     border: 1px solid rgba(255, 255, 255, 0.2);
     pointer-events: auto;
+    padding: 5px 10px;
 }
 
 #自定义快捷键0 {
@@ -266,7 +307,8 @@
 
 .自定义快捷键:hover {
     background: rgba(160, 222, 255, 0.3);
-    transform: translateY(-5px);
+    transform: translateY(-3px) scale(1.01);
+    backdrop-filter: blur(3px);
 }
 
 
@@ -385,27 +427,36 @@
 
 #待办事项 {
     position: relative;
-    background: #82b4cf14;
+    background: ;
     height: 88%;
     width: 45%;
     top: 6%;
     border-radius: 15px;
     left: 4%;
+    border: 2px dashed rgba(160, 222, 255, 0.1);
+    transition: border 0.3s ease;
+}
+
+#待办事项:hover{
+    border: 2px solid rgba(160, 222, 255, 0.1);
 }
 
 #添加任务 {
     position: absolute;
-    width: 100%;
+    width: 96%;
     bottom: 0;
-    border-radius: 15px;
-    height: 32px;
+    border-radius:10px;
+    height: 30px;
+    padding: 0px 10px;
+    left:2%;
+    bottom:2%;
 }
 
 #任务列表 {
     position: relative;
     top: 10px;
     bottom: 32px;
-    width: 100%;
+    width: 99%;
     max-height: calc(100% - 10px - 32px);
     overflow-y: auto;
     scrollbar-width: none;
