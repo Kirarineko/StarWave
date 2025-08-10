@@ -635,6 +635,7 @@ function 渲染备忘录列表() {
         删除按钮.style.background = 'transparent';
         删除按钮.style.color = '#a0deff';
         删除按钮.style.fontSize = '18px';
+        删除按钮.style.zIndex = '999';
         删除按钮.onclick = function () {
             备忘录数据列表.splice(索引, 1);
             保存备忘录数据到本地(备忘录数据列表);
