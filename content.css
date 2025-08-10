@@ -61,38 +61,38 @@
     backdrop-filter: blur(12px);
 }
 
-#备忘录{
+#备忘录 {
     position: fixed;
     border: 2px dashed rgba(160, 255, 255, 0.1);
-    right:2%;
-    left:52%;
+    right: 2%;
+    left: 52%;
     bottom: 22.5px;
     top: 25px;
     border-radius: 15px;
 }
 
-#备忘录列表{
+#备忘录列表 {
     height: 88%;
     overflow-y: scroll;
     scrollbar-width: none;
     -ms-overflow-style: none;
 }
 
-#备忘录:hover{
+#备忘录:hover {
     border: 2px solid rgba(160, 255, 255, 0.1);
 }
 
-#添加备忘录{
+#添加备忘录 {
     position: absolute;
     height: 33px;
     width: 96%;
     bottom: 0px;
-    border-radius:10px;
+    border-radius: 10px;
     bottom: 2%;
     left: 2%;
 }
 
-#备忘录项目{
+#备忘录项目 {
     margin-left: 2%;
     margin-top: 2%;
     margin-bottom: -2%;
@@ -106,12 +106,13 @@
     pointer-events: auto;
     position: absolute;
     height: 40px;
-    width: 40vw;
+    width: 86%;
     border-radius: 25px;
     top: 20px;
-    left: 1vw;
+    left: 2%;
     right: 20px;
-    margin: 20px;
+    margin: 3.3%;
+    margin-top: 20px;
 }
 
 #搜索输入 {
@@ -170,7 +171,7 @@
     position: fixed;
     width: 40px;
     height: 40px;
-    left: 39vw;
+    left: 86.3%;
     border-radius: 50%;
     background: rgba(160, 222, 255, 0.1);
     backdrop-filter: blur(5px);
@@ -436,7 +437,7 @@
     transition: border 0.3s ease;
 }
 
-#待办事项:hover{
+#待办事项:hover {
     border: 2px solid rgba(160, 222, 255, 0.1);
 }
 
@@ -444,11 +445,11 @@
     position: absolute;
     width: 96%;
     bottom: 0;
-    border-radius:10px;
+    border-radius: 10px;
     height: 30px;
     padding: 0px 10px;
-    left:2%;
-    bottom:2%;
+    left: 2%;
+    bottom: 2%;
 }
 
 #任务列表 {
@@ -852,15 +853,15 @@
 }
 
 @media (max-width: 1000px) {
-    #日程栏{
+    #日程栏 {
         display: none;
     }
 
-    #信息栏{
+    #信息栏 {
         display: none;
     }
 
-    #搜索栏{
+    #搜索栏 {
         max-width: calc(100vw - 115px);
         left: 10px;
         right: 10px;
@@ -871,16 +872,17 @@
 
     #搜索框 {
         width: 95%;
-        left: 20px;
+        left: 3.5%;
         right: 0;
         margin: 10px 0;
-        height: 36px;
+        height: 46px;
         border-radius: 18px;
         font-size: 16px;
+        top: 30px;
     }
 
     #搜索输入 {
-        max-width: 84%;
+        max-width: 86%;
         font-size: 16px;
         padding: 10px;
         border-radius: 18px;
@@ -889,20 +891,24 @@
     #搜索按钮 {
         position: static;
         width: 36px;
-        height: 36px;
-        margin-left: 8px;
+        height: 46px;
+        margin-left: 1%;
         margin-right: 0;
         font-size: 18px;
-        border-radius: 50%;
+        border-radius: 18px;
         z-index: 10;
     }
 
-    #快捷键组{
+    #搜索按钮:hover {
+        transform: rotate(0deg);
+    }
+
+    #快捷键组 {
         width: 90%;
         position: absolute;
     }
-    
-    #快捷键组2{
+
+    #快捷键组2 {
         width: 90%;
         position: absolute;
     }
@@ -922,27 +928,27 @@
 }
 
 @media (max-height: 600px) {
-    #日程栏{
+    #日程栏 {
         height: 40vh;
     }
 
-    #信息栏{
+    #信息栏 {
         height: 40vh;
     }
 }
 
 @media (max-height: 400px) {
-    #日程栏{
+    #日程栏 {
         display: none;
     }
 
-    #信息栏{
+    #信息栏 {
         height: auto;
         top: 10px;
         bottom: 10px;
     }
 
-    #搜索栏{
+    #搜索栏 {
         height: auto;
         top: 10px;
         bottom: 10px;
